@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mySkool - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <svg class="theme-icon sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 1v4M12 19v4M23 12h-4M5 12H1M20.66 3.34l-2.83 2.83M6.17 17.83l-2.83 2.83M20.66 20.66l-2.83-2.83M6.17 6.17l-2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="theme-icon moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+    
+    <div class="container">
+        <!-- Left Side: Abstract 3D Visual -->
+        <div class="left-panel">
+            <div class="abstract-background">
+                <!-- Animated geometric shapes -->
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+                <div class="shape shape-5"></div>
+                <div class="shape shape-6"></div>
+                
+                <!-- Gradient orbs -->
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="orb orb-3"></div>
+                
+                <!-- Vector lines -->
+                <svg class="vector-lines" viewBox="0 0 800 600" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" class="line-stop" style="stop-color:#000000;stop-opacity:0.1" />
+                            <stop offset="50%" class="line-stop" style="stop-color:#000000;stop-opacity:0.1" />
+                            <stop offset="100%" class="line-stop" style="stop-color:#000000;stop-opacity:0.1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Solid lines -->
+                    <path d="M0,400 Q200,100 400,300 T800,300" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity="0.2" class="solid-line"/>
+                    <path d="M0,200 Q300,400 600,200 T1200,200" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity="0.3" class="solid-line"/>
+                    <path d="M0,400 Q250,200 500,400 T1000,400" stroke="url(#lineGradient)" stroke-width="3" fill="none" opacity="0.1" class="solid-line"/>
+                    
+                    <!-- Dotted lines with water-flow animation -->
+                    <path d="M0,400 Q200,100 400,300 T800,300" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.2" class="dotted-line water-flow-1"/>
+                    <path d="M0,200 Q300,400 600,200 T1200,200" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.3" class="dotted-line water-flow-2"/>
+                    <path d="M0,400 Q250,200 500,400 T1000,400" stroke="url(#lineGradient)" stroke-width="2" fill="none" opacity="0.1" class="dotted-line water-flow-3"/>
+                </svg>
+            </div>
+            
+            <!-- Dynamic Logo: mySkool PNG with Animated Shadow -->
+            <div class="logo-container">
+                <!-- Animated Moving Shadow -->
+                <div class="logo-shadow"></div>
+                
+                <!-- Logo Image -->
+                <div class="logo-wrapper">
+                    <img src="public/Myskool.png" alt="mySkool Logo" class="logo-image">
+                </div>
+                
+                <!-- Logo Text -->
+                <h1 class="logo-text">mySkool</h1>
+                
+                <p class="tagline">Where Your Future Begins</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Login Form -->
+        <div class="right-panel">
+            <div class="form-container">
+                <div class="welcome-section">
+                    <h2 class="welcome-title">Welcome to mySkool!</h2>
+                    <p class="welcome-subtitle">Please enter your username and password to sign-in your account</p>
+                </div>
+
+                <form class="login-form" id="loginForm">
+                    <div class="input-group">
+                        <label for="username" class="input-label">Username</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="username" 
+                                class="glass-input" 
+                                placeholder="Enter your username"
+                                value=""
+                                required
+                            />
+                            <svg class="input-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="currentColor" opacity="0.5"/>
+                                <path d="M10 12C5.58172 12 2 13.7909 2 16V20H18V16C18 13.7909 14.4183 12 10 12Z" fill="currentColor" opacity="0.5"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password" class="input-label">Password</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="glass-input" 
+                                placeholder="Enter your password"
+                                value=""
+                                required
+                            />
+                            <button type="button" class="password-toggle" id="passwordToggle" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M10 4C6 4 2.73 6.61 1 10.5C2.73 14.39 6 17 10 17C14 17 17.27 14.39 19 10.5C17.27 6.61 14 4 10 4ZM10 15C7.24 15 5 12.76 5 10C5 7.24 7.24 5 10 5C12.76 5 15 7.24 15 10C15 12.76 12.76 15 10 15ZM10 7C8.34 7 7 8.34 7 10C7 11.66 8.34 13 10 13C11.66 13 13 11.66 13 10C13 8.34 11.66 7 10 7Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="signin-button">
+                        <span class="button-text">Sign in</span>
+                        <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

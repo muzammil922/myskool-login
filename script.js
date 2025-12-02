@@ -121,48 +121,84 @@ window.addEventListener('load', () => {
     }, 100);
 });
 
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
-
-// Check for saved theme preference or default to light
-let currentTheme = 'light';
-try {
-    currentTheme = localStorage.getItem('theme') || 'light';
-} catch (e) {
-    // Storage access not allowed (e.g., in iframe or restricted context)
-    console.warn('Storage access not available:', e);
-    currentTheme = 'light';
+// Helper function to safely check if storage is available
+function isStorageAvailable() {
+    try {
+        const test = '__storage_test__';
+        localStorage.setItem(test, test);
+        localStorage.removeItem(test);
+        return true;
+    } catch (e) {
+        return false;
+    }
 }
-html.setAttribute('data-theme', currentTheme);
 
-// Update line gradient colors based on theme
-function updateLineColors() {
-    const lineStops = document.querySelectorAll('.line-stop');
-    const isDark = html.getAttribute('data-theme') === 'dark';
+// Helper function to safely get from localStorage
+function safeGetStorage(key, defaultValue) {
+    if (!isStorageAvailable()) {
+        return defaultValue;
+    }
+    try {
+        return localStorage.getItem(key) || defaultValue;
+    } catch (e) {
+        return defaultValue;
+    }
+}
+
+// Helper function to safely set to localStorage
+function safeSetStorage(key, value) {
+    if (!isStorageAvailable()) {
+        return false;
+    }
+    try {
+        localStorage.setItem(key, value);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+// Theme Toggle Functionality - Initialize after DOM is ready
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (!themeToggle) return;
     
-    lineStops.forEach(stop => {
-        stop.setAttribute('stop-color', isDark ? '#ffffff' : '#000000');
+    const html = document.documentElement;
+
+    // Check for saved theme preference or default to light
+    const currentTheme = safeGetStorage('theme', 'light');
+    html.setAttribute('data-theme', currentTheme);
+
+    // Update line gradient colors based on theme
+    function updateLineColors() {
+        const lineStops = document.querySelectorAll('.line-stop');
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        
+        lineStops.forEach(stop => {
+            stop.setAttribute('stop-color', isDark ? '#ffffff' : '#000000');
+        });
+    }
+
+    // Initialize line colors
+    updateLineColors();
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        html.setAttribute('data-theme', newTheme);
+        
+        // Try to save theme preference, but don't fail if storage is unavailable
+        safeSetStorage('theme', newTheme);
+        
+        // Update line gradient colors
+        updateLineColors();
     });
 }
 
-// Initialize line colors
-updateLineColors();
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    html.setAttribute('data-theme', newTheme);
-    
-    // Try to save theme preference, but don't fail if storage is unavailable
-    try {
-        localStorage.setItem('theme', newTheme);
-    } catch (e) {
-        // Storage access not allowed (e.g., in iframe or restricted context)
-        console.warn('Could not save theme preference:', e);
-    }
-    
-    // Update line gradient colors
-    updateLineColors();
-});
+// Initialize theme toggle when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+} else {
+    initThemeToggle();
+}

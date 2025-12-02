@@ -126,7 +126,14 @@ const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
 
 // Check for saved theme preference or default to light
-const currentTheme = localStorage.getItem('theme') || 'light';
+let currentTheme = 'light';
+try {
+    currentTheme = localStorage.getItem('theme') || 'light';
+} catch (e) {
+    // Storage access not allowed (e.g., in iframe or restricted context)
+    console.warn('Storage access not available:', e);
+    currentTheme = 'light';
+}
 html.setAttribute('data-theme', currentTheme);
 
 // Update line gradient colors based on theme
@@ -147,7 +154,14 @@ themeToggle.addEventListener('click', () => {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
+    
+    // Try to save theme preference, but don't fail if storage is unavailable
+    try {
+        localStorage.setItem('theme', newTheme);
+    } catch (e) {
+        // Storage access not allowed (e.g., in iframe or restricted context)
+        console.warn('Could not save theme preference:', e);
+    }
     
     // Update line gradient colors
     updateLineColors();

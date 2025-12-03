@@ -35,6 +35,39 @@
     --gradient-primary: linear-gradient(135deg, #9333EA 0%, #A855F7 50%, #7C3AED 100%);
     --gradient-secondary: linear-gradient(135deg, #9333EA 0%, #7C3AED 100%);
     --gradient-energy: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%);
+    
+    /* HPGS Red Color */
+    --hpgs-red: #fe080a;
+    --hpgs-red-400: #ff2d2f;
+    --hpgs-red-500: #fe080a;
+    --hpgs-red-600: #d90608;
+    --hpgs-red-700: #b80507;
+    --hpgs-red-light: rgba(254, 8, 10, 0.08);
+    --hpgs-gradient-primary: linear-gradient(135deg, #fe080a 0%, #ff2d2f 50%, #d90608 100%);
+    --hpgs-gradient-secondary: linear-gradient(135deg, #fe080a 0%, #d90608 100%);
+    --hpgs-gradient-energy: linear-gradient(135deg, rgba(254, 8, 10, 0.15) 0%, rgba(255, 45, 47, 0.15) 100%);
+    
+    /* Elixir Green Color */
+    --elixir-green: #b9d242;
+    --elixir-green-400: #c5d95a;
+    --elixir-green-500: #b9d242;
+    --elixir-green-600: #a3b838;
+    --elixir-green-700: #8d9e2e;
+    --elixir-green-light: rgba(185, 210, 66, 0.08);
+    --elixir-gradient-primary: linear-gradient(135deg, #b9d242 0%, #c5d95a 50%, #a3b838 100%);
+    --elixir-gradient-secondary: linear-gradient(135deg, #b9d242 0%, #a3b838 100%);
+    --elixir-gradient-energy: linear-gradient(135deg, rgba(185, 210, 66, 0.15) 0%, rgba(197, 217, 90, 0.15) 100%);
+    
+    /* IUSS Blue Color */
+    --iuss-blue: #244b7d;
+    --iuss-blue-400: #3a5f94;
+    --iuss-blue-500: #244b7d;
+    --iuss-blue-600: #1d3c66;
+    --iuss-blue-700: #162d4f;
+    --iuss-blue-light: rgba(36, 75, 125, 0.08);
+    --iuss-gradient-primary: linear-gradient(135deg, #244b7d 0%, #3a5f94 50%, #1d3c66 100%);
+    --iuss-gradient-secondary: linear-gradient(135deg, #244b7d 0%, #1d3c66 100%);
+    --iuss-gradient-energy: linear-gradient(135deg, rgba(36, 75, 125, 0.15) 0%, rgba(58, 95, 148, 0.15) 100%);
 }
 
 [data-theme="dark"] {
@@ -56,6 +89,301 @@
     --shadow-color: rgba(0, 0, 0, 0.3);
     --line-color: rgba(255, 255, 255, 0.3);
     --line-opacity: 0.85;
+}
+
+/* HPGS Theme - Red Colors Override */
+[data-logo="hpgs"] {
+    --electric-purple: var(--hpgs-red);
+    --purple-400: var(--hpgs-red-400);
+    --purple-500: var(--hpgs-red-500);
+    --purple-600: var(--hpgs-red-600);
+    --purple-700: var(--hpgs-red-700);
+    --purple-light: var(--hpgs-red-light);
+    --gradient-primary: var(--hpgs-gradient-primary);
+    --gradient-secondary: var(--hpgs-gradient-secondary);
+    --gradient-energy: var(--hpgs-gradient-energy);
+    --border-color: rgba(254, 8, 10, 0.18);
+    --input-border: rgba(254, 8, 10, 0.2);
+}
+
+[data-logo="hpgs"][data-theme="dark"] {
+    --border-color: rgba(254, 8, 10, 0.2);
+    --input-border: rgba(254, 8, 10, 0.2);
+    --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #2e0a0a 70%, #4e1b1b 100%);
+}
+
+[data-logo="hpgs"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(254, 8, 10, 0.15) 0%, transparent 70%) !important;
+}
+
+[data-logo="hpgs"] .logo-container {
+    background: transparent !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(254, 8, 10, 0.08) 0%, transparent 70%) !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .logo-container {
+    background: transparent !important;
+}
+
+/* HPGS Red Color Overrides for hardcoded rgba values */
+[data-logo="hpgs"] .theme-toggle:hover {
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(254, 8, 10, 0.2) !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .theme-toggle:hover {
+    border-color: var(--hpgs-red) !important;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(254, 8, 10, 0.2) !important;
+}
+
+[data-logo="hpgs"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="hpgs"][data-theme="light"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="hpgs"][data-theme="light"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="hpgs"] .glass-input:focus {
+    box-shadow: 
+        0 0 0 3px rgba(254, 8, 10, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="hpgs"] .glass-input:hover {
+    border-color: rgba(254, 8, 10, 0.35) !important;
+}
+
+[data-logo="hpgs"] .checkbox-custom {
+    border-color: rgba(254, 8, 10, 0.4) !important;
+}
+
+[data-logo="hpgs"] .security-badge {
+    background: rgba(254, 8, 10, 0.1) !important;
+    border: 1px solid rgba(254, 8, 10, 0.3) !important;
+}
+
+[data-logo="hpgs"] .security-badge svg {
+    filter: drop-shadow(0 0 4px rgba(254, 8, 10, 0.6)) !important;
+}
+
+[data-logo="hpgs"] .signin-button {
+    box-shadow: 
+        0 2px 8px rgba(254, 8, 10, 0.3),
+        0 4px 12px rgba(254, 8, 10, 0.2) !important;
+}
+
+[data-logo="hpgs"] .signin-button:hover {
+    box-shadow: 
+        0 4px 12px rgba(254, 8, 10, 0.4),
+        0 6px 16px rgba(254, 8, 10, 0.3) !important;
+}
+
+[data-logo="hpgs"] .signin-button:active {
+    box-shadow: 
+        0 2px 6px rgba(254, 8, 10, 0.3),
+        0 4px 10px rgba(254, 8, 10, 0.2) !important;
+}
+
+/* HPGS Text Color - Red */
+[data-logo="hpgs"] #logoText {
+    background: linear-gradient(135deg, #fe080a 0%, #ff2d2f 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="hpgs"][data-theme="light"] #logoText {
+    background: linear-gradient(135deg, #1a1a1a 0%, #fe080a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] #logoText {
+    background: linear-gradient(135deg, #ffffff 0%, #fe080a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* HPGS Blink Lines - Red */
+[data-logo="hpgs"] .right-panel::after {
+    animation: borderGlowRed 3s ease-in-out infinite, lineBlinkRed 2.5s infinite ease-in-out !important;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(254, 8, 10, 0.15) 20%,
+        rgba(254, 8, 10, 0.3) 50%,
+        rgba(254, 8, 10, 0.15) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(254, 8, 10, 0.08) !important;
+}
+
+@keyframes borderGlowRed {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 25px rgba(254, 8, 10, 0.15);
+    }
+}
+
+@keyframes lineBlinkRed {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    18% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    19% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    19.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    20% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(254, 8, 10, 0.5), 0 0 50px rgba(254, 8, 10, 0.3);
+    }
+    20.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    21% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    22% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    38% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    39% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    39.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    40% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(254, 8, 10, 0.5), 0 0 50px rgba(254, 8, 10, 0.3);
+    }
+    40.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    41% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    42% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    58% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    59% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    59.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    60% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(254, 8, 10, 0.5), 0 0 50px rgba(254, 8, 10, 0.3);
+    }
+    60.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    61% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    62% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    78% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    79% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    79.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    80% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(254, 8, 10, 0.5), 0 0 50px rgba(254, 8, 10, 0.3);
+    }
+    80.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+    81% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    82% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    98% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(254, 8, 10, 0.08);
+    }
+    99% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(254, 8, 10, 0.2), 0 0 30px rgba(254, 8, 10, 0.1);
+    }
+    99.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(254, 8, 10, 0.35), 0 0 40px rgba(254, 8, 10, 0.2);
+    }
+}
+
+
+[data-logo="hpgs"][data-theme="dark"] {
+    --border-color: rgba(254, 8, 10, 0.2);
+    --input-border: rgba(254, 8, 10, 0.2);
 }
 
 /* Line gradient colors for themes */
@@ -124,6 +452,13 @@ body {
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.08),
         0 6px 12px rgba(147, 51, 234, 0.2);
+}
+
+[data-logo="hpgs"][data-theme="dark"] .theme-toggle:hover {
+    border-color: var(--hpgs-red) !important;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(254, 8, 10, 0.2) !important;
 }
 
 .theme-icon {
@@ -219,6 +554,10 @@ body {
 
 [data-theme="dark"] .left-panel::after {
     background: radial-gradient(ellipse at bottom left, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
+}
+
+[data-logo="hpgs"][data-theme="dark"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(254, 8, 10, 0.08) 0%, transparent 70%) !important;
 }
 
 .abstract-background {
@@ -432,13 +771,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.12) 0%, transparent 70%);
+    background: transparent;
     border-radius: 20px;
     transition: background 0.3s ease;
 }
 
 [data-theme="dark"] .logo-container {
-    background: radial-gradient(ellipse at center, rgba(147, 51, 234, 0.06) 0%, transparent 70%);
+    background: transparent;
 }
 
 /* Animated Moving Shadow - Matching Logo Colors */
@@ -499,6 +838,11 @@ body {
     padding: 20px;
 }
 
+/* Logo Container for 3D Perspective */
+.logo-container {
+    perspective: 1000px;
+}
+
 /* Animated Moving Purple Border - Removed */
 .logo-wrapper::before {
     display: none;
@@ -523,23 +867,26 @@ body {
     max-width: 400px;
     display: block;
     object-fit: contain;
-    transition: transform 0.3s ease;
-    /* 3D Depth Effects */
-    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(0);
+    transition: transform 0.4s ease-out !important;
+    /* 3D Depth Effects - Initial State */
+    transform: rotateX(0deg) rotateY(0deg) !important;
     filter: none;
     opacity: 0;
-    animation: logoImageFadeIn 1s ease-out 0.5s forwards, logoDepth 6s ease-in-out 1.5s infinite;
+    animation: logoImageFadeIn 1s ease-out 0.5s forwards;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    will-change: transform;
 }
 
 @keyframes logoImageFadeIn {
     from {
         opacity: 0;
-        transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(-50px) scale(0.85);
+        transform: rotateX(0deg) rotateY(0deg);
         filter: blur(8px);
     }
     to {
         opacity: 1;
-        transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(0) scale(1);
+        transform: rotateX(0deg) rotateY(0deg);
         filter: blur(0);
     }
 }
@@ -563,8 +910,9 @@ body {
     }
 }
 
-.logo-image:hover {
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(20px) scale(1.05);
+/* 3D Hover Effect - Tilt backwards on hover */
+.logo-wrapper:hover .logo-image {
+    transform: rotateX(15deg) rotateY(15deg) !important;
     filter: none;
 }
 
@@ -612,7 +960,7 @@ body {
     z-index: 2;
     transition: color 0.3s ease;
     /* Enhanced visibility */
-    text-shadow: 0 1px 4px rgba(147, 51, 234, 0.15), 0 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
     font-weight: 400;
 }
 
@@ -622,7 +970,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 8px rgba(147, 51, 234, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
 }
 
 [data-theme="dark"] .logo-text {
@@ -630,17 +978,446 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 12px rgba(168, 85, 247, 0.3), 0 1px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: none;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .logo-text {
+    background: linear-gradient(135deg, #ffffff 0%, #fe080a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* Elixir Theme - Green Colors Override */
+[data-logo="elixir"] {
+    --electric-purple: var(--elixir-green);
+    --purple-400: var(--elixir-green-400);
+    --purple-500: var(--elixir-green-500);
+    --purple-600: var(--elixir-green-600);
+    --purple-700: var(--elixir-green-700);
+    --purple-light: var(--elixir-green-light);
+    --gradient-primary: var(--elixir-gradient-primary);
+    --gradient-secondary: var(--elixir-gradient-secondary);
+    --gradient-energy: var(--elixir-gradient-energy);
+    --border-color: rgba(185, 210, 66, 0.18);
+    --input-border: rgba(185, 210, 66, 0.2);
+}
+
+[data-logo="elixir"][data-theme="dark"] {
+    --border-color: rgba(185, 210, 66, 0.2);
+    --input-border: rgba(185, 210, 66, 0.2);
+    --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #0a2e0a 70%, #1b4e1b 100%);
+}
+
+[data-logo="elixir"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(185, 210, 66, 0.15) 0%, transparent 70%) !important;
+}
+
+[data-logo="elixir"] .logo-container {
+    background: transparent !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(185, 210, 66, 0.08) 0%, transparent 70%) !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .logo-container {
+    background: transparent !important;
+}
+
+[data-logo="elixir"] .theme-toggle:hover {
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(185, 210, 66, 0.2) !important;
+}
+
+[data-logo="elixir"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="elixir"][data-theme="light"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="elixir"][data-theme="light"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="elixir"] .glass-input:focus {
+    box-shadow: 
+        0 0 0 3px rgba(185, 210, 66, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="elixir"] .glass-input:hover {
+    border-color: rgba(185, 210, 66, 0.35) !important;
+}
+
+[data-logo="elixir"] .checkbox-custom {
+    border-color: rgba(185, 210, 66, 0.4) !important;
+}
+
+[data-logo="elixir"] .security-badge {
+    background: rgba(185, 210, 66, 0.1) !important;
+    border: 1px solid rgba(185, 210, 66, 0.3) !important;
+}
+
+[data-logo="elixir"] .security-badge svg {
+    filter: drop-shadow(0 0 4px rgba(185, 210, 66, 0.6)) !important;
+}
+
+[data-logo="elixir"] .signin-button {
+    box-shadow: 
+        0 2px 8px rgba(185, 210, 66, 0.3),
+        0 4px 12px rgba(185, 210, 66, 0.2) !important;
+}
+
+[data-logo="elixir"] .signin-button:hover {
+    box-shadow: 
+        0 4px 12px rgba(185, 210, 66, 0.4),
+        0 6px 16px rgba(185, 210, 66, 0.3) !important;
+}
+
+[data-logo="elixir"] .signin-button:active {
+    box-shadow: 
+        0 2px 6px rgba(185, 210, 66, 0.3),
+        0 4px 10px rgba(185, 210, 66, 0.2) !important;
+}
+
+[data-logo="elixir"] #logoText {
+    background: linear-gradient(135deg, #b9d242 0%, #c5d95a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="elixir"][data-theme="light"] #logoText {
+    background: linear-gradient(135deg, #1a1a1a 0%, #b9d242 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] #logoText {
+    background: linear-gradient(135deg, #ffffff 0%, #b9d242 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="elixir"] .right-panel::after {
+    animation: borderGlowElixir 3s ease-in-out infinite, lineBlinkElixir 2.5s infinite ease-in-out !important;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(185, 210, 66, 0.15) 20%,
+        rgba(185, 210, 66, 0.3) 50%,
+        rgba(185, 210, 66, 0.15) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(185, 210, 66, 0.08) !important;
+}
+
+@keyframes borderGlowElixir {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 25px rgba(185, 210, 66, 0.15);
+    }
+}
+
+@keyframes lineBlinkElixir {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+    18% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+    19% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(185, 210, 66, 0.2), 0 0 30px rgba(185, 210, 66, 0.1);
+    }
+    19.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(185, 210, 66, 0.35), 0 0 40px rgba(185, 210, 66, 0.2);
+    }
+    20% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(185, 210, 66, 0.5), 0 0 50px rgba(185, 210, 66, 0.3);
+    }
+    20.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(185, 210, 66, 0.35), 0 0 40px rgba(185, 210, 66, 0.2);
+    }
+    21% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(185, 210, 66, 0.2), 0 0 30px rgba(185, 210, 66, 0.1);
+    }
+    22% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+    38%, 58%, 78%, 98% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+    39%, 59%, 79%, 99% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(185, 210, 66, 0.2), 0 0 30px rgba(185, 210, 66, 0.1);
+    }
+    39.5%, 59.5%, 79.5%, 99.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(185, 210, 66, 0.35), 0 0 40px rgba(185, 210, 66, 0.2);
+    }
+    40%, 60%, 80%, 100% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(185, 210, 66, 0.5), 0 0 50px rgba(185, 210, 66, 0.3);
+    }
+    40.5%, 60.5%, 80.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(185, 210, 66, 0.35), 0 0 40px rgba(185, 210, 66, 0.2);
+    }
+    41%, 61%, 81% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(185, 210, 66, 0.2), 0 0 30px rgba(185, 210, 66, 0.1);
+    }
+    42%, 62%, 82% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(185, 210, 66, 0.08);
+    }
+}
+
+/* IUSS Theme - Blue Colors Override */
+[data-logo="iuss"] {
+    --electric-purple: var(--iuss-blue);
+    --purple-400: var(--iuss-blue-400);
+    --purple-500: var(--iuss-blue-500);
+    --purple-600: var(--iuss-blue-600);
+    --purple-700: var(--iuss-blue-700);
+    --purple-light: var(--iuss-blue-light);
+    --gradient-primary: var(--iuss-gradient-primary);
+    --gradient-secondary: var(--iuss-gradient-secondary);
+    --gradient-energy: var(--iuss-gradient-energy);
+    --border-color: rgba(36, 75, 125, 0.18);
+    --input-border: rgba(36, 75, 125, 0.2);
+}
+
+[data-logo="iuss"][data-theme="dark"] {
+    --border-color: rgba(36, 75, 125, 0.2);
+    --input-border: rgba(36, 75, 125, 0.2);
+    --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #0a0a2e 70%, #1b1b4e 100%);
+}
+
+[data-logo="iuss"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(36, 75, 125, 0.15) 0%, transparent 70%) !important;
+}
+
+[data-logo="iuss"] .logo-container {
+    background: transparent !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .left-panel::after {
+    background: radial-gradient(ellipse at bottom left, rgba(36, 75, 125, 0.08) 0%, transparent 70%) !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .logo-container {
+    background: transparent !important;
+}
+
+[data-logo="iuss"] .theme-toggle:hover {
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.08),
+        0 6px 12px rgba(36, 75, 125, 0.2) !important;
+}
+
+[data-logo="iuss"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="iuss"][data-theme="light"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .logo-text {
+    text-shadow: none !important;
+}
+
+[data-logo="iuss"][data-theme="light"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .tagline {
+    text-shadow: none !important;
+}
+
+[data-logo="iuss"] .glass-input:focus {
+    box-shadow: 
+        0 0 0 3px rgba(36, 75, 125, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="iuss"] .glass-input:hover {
+    border-color: rgba(36, 75, 125, 0.35) !important;
+}
+
+[data-logo="iuss"] .checkbox-custom {
+    border-color: rgba(36, 75, 125, 0.4) !important;
+}
+
+[data-logo="iuss"] .security-badge {
+    background: rgba(36, 75, 125, 0.1) !important;
+    border: 1px solid rgba(36, 75, 125, 0.3) !important;
+}
+
+[data-logo="iuss"] .security-badge svg {
+    filter: drop-shadow(0 0 4px rgba(36, 75, 125, 0.6)) !important;
+}
+
+[data-logo="iuss"] .signin-button {
+    box-shadow: 
+        0 2px 8px rgba(36, 75, 125, 0.3),
+        0 4px 12px rgba(36, 75, 125, 0.2) !important;
+}
+
+[data-logo="iuss"] .signin-button:hover {
+    box-shadow: 
+        0 4px 12px rgba(36, 75, 125, 0.4),
+        0 6px 16px rgba(36, 75, 125, 0.3) !important;
+}
+
+[data-logo="iuss"] .signin-button:active {
+    box-shadow: 
+        0 2px 6px rgba(36, 75, 125, 0.3),
+        0 4px 10px rgba(36, 75, 125, 0.2) !important;
+}
+
+[data-logo="iuss"] #logoText {
+    background: linear-gradient(135deg, #244b7d 0%, #3a5f94 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="iuss"][data-theme="light"] #logoText {
+    background: linear-gradient(135deg, #1a1a1a 0%, #244b7d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] #logoText {
+    background: linear-gradient(135deg, #ffffff 0%, #244b7d 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+[data-logo="iuss"] .right-panel::after {
+    animation: borderGlowIuss 3s ease-in-out infinite, lineBlinkIuss 2.5s infinite ease-in-out !important;
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(36, 75, 125, 0.15) 20%,
+        rgba(36, 75, 125, 0.3) 50%,
+        rgba(36, 75, 125, 0.15) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(36, 75, 125, 0.08) !important;
+}
+
+@keyframes borderGlowIuss {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 25px rgba(36, 75, 125, 0.15);
+    }
+}
+
+@keyframes lineBlinkIuss {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
+    18% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
+    19% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(36, 75, 125, 0.2), 0 0 30px rgba(36, 75, 125, 0.1);
+    }
+    19.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(36, 75, 125, 0.35), 0 0 40px rgba(36, 75, 125, 0.2);
+    }
+    20% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(36, 75, 125, 0.5), 0 0 50px rgba(36, 75, 125, 0.3);
+    }
+    20.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(36, 75, 125, 0.35), 0 0 40px rgba(36, 75, 125, 0.2);
+    }
+    21% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(36, 75, 125, 0.2), 0 0 30px rgba(36, 75, 125, 0.1);
+    }
+    22% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
+    38%, 58%, 78%, 98% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
+    39%, 59%, 79%, 99% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(36, 75, 125, 0.2), 0 0 30px rgba(36, 75, 125, 0.1);
+    }
+    39.5%, 59.5%, 79.5%, 99.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(36, 75, 125, 0.35), 0 0 40px rgba(36, 75, 125, 0.2);
+    }
+    40%, 60%, 80%, 100% {
+        opacity: 0.95;
+        box-shadow: 0 0 35px rgba(36, 75, 125, 0.5), 0 0 50px rgba(36, 75, 125, 0.3);
+    }
+    40.5%, 60.5%, 80.5% {
+        opacity: 0.7;
+        box-shadow: 0 0 28px rgba(36, 75, 125, 0.35), 0 0 40px rgba(36, 75, 125, 0.2);
+    }
+    41%, 61%, 81% {
+        opacity: 0.5;
+        box-shadow: 0 0 20px rgba(36, 75, 125, 0.2), 0 0 30px rgba(36, 75, 125, 0.1);
+    }
+    42%, 62%, 82% {
+        opacity: 0.3;
+        box-shadow: 0 0 15px rgba(36, 75, 125, 0.08);
+    }
 }
 
 [data-theme="light"] .tagline {
     color: rgba(0, 0, 0, 0.7);
-    text-shadow: 0 1px 4px rgba(147, 51, 234, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08);
+    text-shadow: none;
 }
 
 [data-theme="dark"] .tagline {
     color: rgba(255, 255, 255, 0.75);
-    text-shadow: 0 1px 6px rgba(168, 85, 247, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
 }
 
 @keyframes taglineFadeIn {
@@ -665,8 +1442,9 @@ body {
     justify-content: center;
     width: 100%;
     padding: 60px;
+    padding-bottom: 100px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     opacity: 0;
     animation: rightPanelFadeIn 1s ease-out 0.2s forwards;
     transition: background 0.3s ease;
@@ -1218,6 +1996,271 @@ body {
         0 4px 10px rgba(147, 51, 234, 0.2);
 }
 
+/* Fluid Navigation Menu */
+.fluid-nav-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 12px;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.fluid-nav-main {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--form-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.fluid-nav-main:hover {
+    border-color: var(--electric-purple);
+    box-shadow: 
+        0 4px 12px rgba(147, 51, 234, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.fluid-nav-icon-wrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fluid-nav-icon {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluid-nav-icon.menu-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.fluid-nav-icon.close-icon {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+}
+
+.fluid-nav-container[data-expanded="true"] .fluid-nav-icon.menu-icon {
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+}
+
+.fluid-nav-container[data-expanded="true"] .fluid-nav-icon.close-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.fluid-nav-school-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.fluid-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    background: var(--form-bg);
+    border: 1.5px solid var(--border-color);
+    border-radius: 50px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.9);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        0 4px 12px rgba(0, 0, 0, 0.06);
+    width: fit-content;
+}
+
+.fluid-nav-container[data-expanded="true"] .fluid-nav-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+}
+
+.fluid-nav-item:nth-child(2) {
+    transition-delay: 0.05s;
+}
+
+.fluid-nav-item:nth-child(3) {
+    transition-delay: 0.1s;
+}
+
+.fluid-nav-item:hover {
+    border-color: var(--electric-purple);
+    background: var(--input-bg);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+        0 4px 12px rgba(147, 51, 234, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.fluid-nav-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.fluid-nav-item:hover svg {
+    color: var(--electric-purple);
+    transform: scale(1.1);
+}
+
+.fluid-nav-item-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+
+.fluid-nav-item .theme-icon-sun,
+.fluid-nav-item .theme-icon-moon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.fluid-nav-item .theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.fluid-nav-item .theme-icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+[data-theme="dark"] .fluid-nav-item .theme-icon-sun {
+    opacity: 0;
+    transform: rotate(90deg) scale(0);
+}
+
+[data-theme="dark"] .fluid-nav-item .theme-icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* HPGS Theme for Fluid Nav */
+[data-logo="hpgs"] .fluid-nav-main:hover {
+    border-color: var(--hpgs-red);
+    box-shadow: 
+        0 4px 12px rgba(254, 8, 10, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="hpgs"] .fluid-nav-item:hover {
+    border-color: var(--hpgs-red);
+    box-shadow: 
+        0 4px 12px rgba(254, 8, 10, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="hpgs"] .fluid-nav-item:hover svg {
+    color: var(--hpgs-red);
+}
+
+[data-logo="elixir"] .fluid-nav-main:hover {
+    border-color: var(--elixir-green);
+    box-shadow: 
+        0 4px 12px rgba(185, 210, 66, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="elixir"] .fluid-nav-item:hover {
+    border-color: var(--elixir-green);
+    box-shadow: 
+        0 4px 12px rgba(185, 210, 66, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="elixir"] .fluid-nav-item:hover svg {
+    color: var(--elixir-green);
+}
+
+[data-logo="iuss"] .fluid-nav-main:hover {
+    border-color: var(--iuss-blue);
+    box-shadow: 
+        0 4px 12px rgba(36, 75, 125, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="iuss"] .fluid-nav-item:hover {
+    border-color: var(--iuss-blue);
+    box-shadow: 
+        0 4px 12px rgba(36, 75, 125, 0.2),
+        0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-logo="iuss"] .fluid-nav-item:hover svg {
+    color: var(--iuss-blue);
+}
+
+/* Responsive Fluid Nav */
+@media (max-width: 768px) {
+    .fluid-nav-container {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .fluid-nav-main,
+    .fluid-nav-item {
+        padding: 10px 16px;
+    }
+    
+    .fluid-nav-school-name {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fluid-nav-container {
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    .fluid-nav-main,
+    .fluid-nav-item {
+        padding: 8px 14px;
+    }
+    
+    .fluid-nav-school-name {
+        display: none;
+    }
+}
+
 .button-text {
     position: relative;
     z-index: 1;
@@ -1299,6 +2342,7 @@ body {
         flex: 1;
         min-height: 50vh;
         padding: 30px 20px;
+        padding-bottom: 100px;
         justify-content: center;
         align-items: center;
         display: flex;
@@ -1326,43 +2370,69 @@ body {
 /* Mobile Large (768px and below) */
 @media (max-width: 768px) {
     .left-panel {
-        flex: 1;
-        min-height: 50vh;
-        max-height: 50vh;
-        padding: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .logo-container {
-        padding: 25px 15px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .logo-image {
-        height: 110px;
-        max-width: 220px;
-    }
-    
-    .logo-text {
-        font-size: 1.75rem;
-        margin-bottom: 8px;
-    }
-    
-    .tagline {
-        font-size: 0.8125rem;
-        margin-top: 8px;
+        display: none !important;
     }
     
     .right-panel {
         flex: 1;
-        min-height: 50vh;
+        min-height: 100vh;
         padding: 20px 16px;
-        justify-content: center;
+        padding-bottom: 100px;
+        justify-content: flex-start;
         align-items: center;
         display: flex;
+        flex-direction: column;
+    }
+    
+    /* Show mobile logo in right panel */
+    .mobile-logo {
+        display: flex !important;
+        padding: 40px 20px;
+        width: 100%;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+    
+    .logo-wrapper {
+        margin-bottom: 20px;
+    }
+    
+    .logo-image {
+        height: 150px;
+        max-width: 300px;
+    }
+    
+    .logo-text {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Mobile Logo Text Colors - IUSS Blue */
+    [data-logo="iuss"] .mobile-logo .logo-text,
+    [data-logo="iuss"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #244b7d 0%, #3a5f94 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    /* Mobile Logo Text Colors - Elixir Green */
+    [data-logo="elixir"] .mobile-logo .logo-text,
+    [data-logo="elixir"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #b9d242 0%, #c5d95a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    .tagline {
+        font-size: 0.875rem;
+        margin-top: 10px;
+        text-align: center;
     }
     
     .form-container {
@@ -1421,43 +2491,69 @@ body {
 /* Mobile Small (480px and below) */
 @media (max-width: 480px) {
     .left-panel {
-        flex: 1;
-        min-height: 50vh;
-        max-height: 50vh;
-        padding: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .logo-container {
-        padding: 20px 12px;
-        width: 100%;
-        max-width: 100%;
-    }
-    
-    .logo-image {
-        height: 90px;
-        max-width: 180px;
-    }
-    
-    .logo-text {
-        font-size: 1.5rem;
-        margin-bottom: 6px;
-    }
-    
-    .tagline {
-        font-size: 0.75rem;
-        margin-top: 6px;
+        display: none !important;
     }
     
     .right-panel {
         flex: 1;
-        min-height: 50vh;
+        min-height: 100vh;
         padding: 16px 12px;
-        justify-content: center;
+        padding-bottom: 90px;
+        justify-content: flex-start;
         align-items: center;
         display: flex;
+        flex-direction: column;
+    }
+    
+    /* Show mobile logo in right panel */
+    .mobile-logo {
+        display: flex !important;
+        padding: 30px 15px;
+        width: 100%;
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    
+    .logo-wrapper {
+        margin-bottom: 15px;
+    }
+    
+    .logo-image {
+        height: 120px;
+        max-width: 240px;
+    }
+    
+    .logo-text {
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+    
+    /* Mobile Small Logo Text Colors - IUSS Blue */
+    [data-logo="iuss"] .mobile-logo .logo-text,
+    [data-logo="iuss"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #244b7d 0%, #3a5f94 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    /* Mobile Small Logo Text Colors - Elixir Green */
+    [data-logo="elixir"] .mobile-logo .logo-text,
+    [data-logo="elixir"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #b9d242 0%, #c5d95a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    .tagline {
+        font-size: 0.8125rem;
+        margin-top: 8px;
+        text-align: center;
     }
     
     .form-container {

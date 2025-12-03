@@ -423,11 +423,21 @@ body {
     }
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
+/* Theme Toggle Button Wrapper */
+.theme-toggle-wrapper {
     position: fixed;
     top: 24px;
     right: 24px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row-reverse;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: relative;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -439,11 +449,80 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.06),
         0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Theme Toggle Label */
+.theme-toggle-label {
+    position: relative;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    padding: 5px 22px 5px 10px;
+    background: var(--form-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid var(--border-color);
+    border-radius: 18px;
+    opacity: 0;
+    transform: translateX(10px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.06),
+        0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Arrow indicator pointing to toggle - with proper spacing from text */
+.theme-toggle-label::after {
+    content: '→';
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.625rem;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.8;
+}
+
+.theme-toggle-wrapper:hover .theme-toggle-label::after {
+    color: var(--electric-purple);
+    transform: translateY(-50%) translateX(3px);
+    opacity: 1;
+}
+
+[data-logo="hpgs"] .theme-toggle-wrapper:hover .theme-toggle-label::after {
+    color: var(--hpgs-red);
+}
+
+[data-logo="iuss"] .theme-toggle-wrapper:hover .theme-toggle-label::after {
+    color: var(--iuss-blue);
+}
+
+.theme-toggle-wrapper:hover .theme-toggle-label {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+}
+
+.theme-toggle-wrapper:hover .theme-toggle {
+    border-color: var(--electric-purple);
+}
+
+[data-logo="hpgs"] .theme-toggle-wrapper:hover .theme-toggle {
+    border-color: var(--hpgs-red) !important;
+}
+
+[data-logo="iuss"] .theme-toggle-wrapper:hover .theme-toggle {
+    border-color: var(--iuss-blue) !important;
 }
 
 .theme-toggle:hover {
@@ -2081,6 +2160,32 @@ body {
     transition: color 0.3s ease;
 }
 
+.fluid-nav-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: 1px solid var(--border-color);
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fluid-nav-main:hover .fluid-nav-label {
+    color: var(--electric-purple);
+}
+
+[data-logo="hpgs"] .fluid-nav-main:hover .fluid-nav-label {
+    color: var(--hpgs-red);
+}
+
+[data-logo="iuss"] .fluid-nav-main:hover .fluid-nav-label {
+    color: var(--iuss-blue);
+}
+
 .fluid-nav-item {
     display: flex;
     align-items: center;
@@ -2243,6 +2348,12 @@ body {
     .fluid-nav-school-name {
         font-size: 0.8125rem;
     }
+    
+    .fluid-nav-label {
+        font-size: 0.6875rem;
+        padding-left: 10px;
+        margin-left: 6px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2258,6 +2369,12 @@ body {
     
     .fluid-nav-school-name {
         display: none;
+    }
+    
+    .fluid-nav-label {
+        font-size: 0.625rem;
+        padding-left: 8px;
+        margin-left: 4px;
     }
 }
 
@@ -2359,11 +2476,19 @@ body {
         margin-bottom: 32px;
     }
     
-    .theme-toggle {
+    .theme-toggle-wrapper {
         top: 16px;
         right: 16px;
+    }
+    
+    .theme-toggle {
         width: 44px;
         height: 44px;
+    }
+    
+    .theme-toggle-label {
+        font-size: 0.75rem;
+        padding: 6px 12px;
     }
 }
 
@@ -2475,11 +2600,18 @@ body {
         font-size: 0.9375rem;
     }
     
-    .theme-toggle {
+    .theme-toggle-wrapper {
         top: 12px;
         right: 12px;
+    }
+    
+    .theme-toggle {
         width: 42px;
         height: 42px;
+    }
+    
+    .theme-toggle-label {
+        display: none;
     }
     
     .theme-icon {
@@ -2609,11 +2741,18 @@ body {
         height: 18px;
     }
     
-    .theme-toggle {
+    .theme-toggle-wrapper {
         top: 10px;
         right: 10px;
+    }
+    
+    .theme-toggle {
         width: 40px;
         height: 40px;
+    }
+    
+    .theme-toggle-label {
+        display: none;
     }
     
     .theme-icon {

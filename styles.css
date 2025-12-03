@@ -2554,6 +2554,31 @@ body {
         background-clip: text !important;
     }
     
+    /* Mobile Logo Text Colors - HPGS Red */
+    [data-logo="hpgs"] .mobile-logo .logo-text,
+    [data-logo="hpgs"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #fe080a 0%, #ff2d2f 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    [data-logo="hpgs"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="hpgs"][data-theme="light"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #1a1a1a 0%, #fe080a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    [data-logo="hpgs"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="hpgs"][data-theme="dark"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #ffffff 0%, #fe080a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
     .tagline {
         font-size: 0.875rem;
         margin-top: 10px;
@@ -2677,6 +2702,31 @@ body {
     [data-logo="elixir"] .mobile-logo .logo-text,
     [data-logo="elixir"] .mobile-logo #logoTextMobile {
         background: linear-gradient(135deg, #b9d242 0%, #c5d95a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    /* Mobile Small Logo Text Colors - HPGS Red */
+    [data-logo="hpgs"] .mobile-logo .logo-text,
+    [data-logo="hpgs"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #fe080a 0%, #ff2d2f 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    [data-logo="hpgs"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="hpgs"][data-theme="light"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #1a1a1a 0%, #fe080a 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        background-clip: text !important;
+    }
+    
+    [data-logo="hpgs"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="hpgs"][data-theme="dark"] .mobile-logo #logoTextMobile {
+        background: linear-gradient(135deg, #ffffff 0%, #fe080a 100%) !important;
         -webkit-background-clip: text !important;
         -webkit-text-fill-color: transparent !important;
         background-clip: text !important;

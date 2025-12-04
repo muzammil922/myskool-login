@@ -2922,7 +2922,11 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
     
     /* Mobile Logo Text Colors - IUSS Blue */
     [data-logo="iuss"] .mobile-logo .logo-text,
-    [data-logo="iuss"] .mobile-logo #logoTextMobile {
+    [data-logo="iuss"] .mobile-logo #logoTextMobile,
+    [data-logo="iuss"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="iuss"][data-theme="light"] .mobile-logo #logoTextMobile,
+    [data-logo="iuss"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="iuss"][data-theme="dark"] .mobile-logo #logoTextMobile {
         color: #1d4887 !important;
         background: none !important;
         background-image: none !important;
@@ -2933,7 +2937,11 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
     
     /* Mobile Logo Text Colors - Elixir Green */
     [data-logo="elixir"] .mobile-logo .logo-text,
-    [data-logo="elixir"] .mobile-logo #logoTextMobile {
+    [data-logo="elixir"] .mobile-logo #logoTextMobile,
+    [data-logo="elixir"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="elixir"][data-theme="light"] .mobile-logo #logoTextMobile,
+    [data-logo="elixir"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="elixir"][data-theme="dark"] .mobile-logo #logoTextMobile {
         color: #b7d243 !important;
         background: none !important;
         background-image: none !important;
@@ -3164,7 +3172,11 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
     
     /* Mobile Small Logo Text Colors - IUSS Blue */
     [data-logo="iuss"] .mobile-logo .logo-text,
-    [data-logo="iuss"] .mobile-logo #logoTextMobile {
+    [data-logo="iuss"] .mobile-logo #logoTextMobile,
+    [data-logo="iuss"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="iuss"][data-theme="light"] .mobile-logo #logoTextMobile,
+    [data-logo="iuss"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="iuss"][data-theme="dark"] .mobile-logo #logoTextMobile {
         color: #1d4887 !important;
         background: none !important;
         background-image: none !important;
@@ -3189,7 +3201,11 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
     
     /* Mobile Small Logo Text Colors - Elixir Green */
     [data-logo="elixir"] .mobile-logo .logo-text,
-    [data-logo="elixir"] .mobile-logo #logoTextMobile {
+    [data-logo="elixir"] .mobile-logo #logoTextMobile,
+    [data-logo="elixir"][data-theme="light"] .mobile-logo .logo-text,
+    [data-logo="elixir"][data-theme="light"] .mobile-logo #logoTextMobile,
+    [data-logo="elixir"][data-theme="dark"] .mobile-logo .logo-text,
+    [data-logo="elixir"][data-theme="dark"] .mobile-logo #logoTextMobile {
         color: #b7d243 !important;
         background: none !important;
         background-image: none !important;

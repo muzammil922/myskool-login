@@ -277,7 +277,7 @@ function initLogoRotation() {
     const welcomeTitle = document.getElementById('welcomeTitle');
     
     const logos = [
-        { image: '/Myskool.png', text: 'mySkool', theme: 'myskool', welcome: 'Welcome to mySkool!' },
+        { image: '/mySkool 2.png', text: 'mySkool', theme: 'myskool', welcome: 'Welcome to mySkool!' },
         { image: '/HPGS.png', text: 'HPGS CONNECT', theme: 'hpgs', welcome: 'Welcome to HPGS CONNECT!' },
         { image: '/elixir.png', text: 'Elixir', theme: 'elixir', welcome: 'Welcome to Elixir!' },
         { image: '/iuss.png', text: 'IUSS', theme: 'iuss', welcome: 'Welcome to IUSS!' }

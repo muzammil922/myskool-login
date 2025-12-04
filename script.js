@@ -1,19 +1,80 @@
 // Password visibility toggle
-const passwordToggle = document.getElementById('passwordToggle');
-const passwordInput = document.getElementById('password');
-
-passwordToggle.addEventListener('click', () => {
-    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-    passwordInput.setAttribute('type', type);
+function initPasswordToggle() {
+    const passwordToggle = document.getElementById('passwordToggle');
+    const passwordInput = document.getElementById('password');
     
-    // Update icon (simple toggle - you can enhance with different icons)
+    if (!passwordToggle || !passwordInput) return;
+    
     const eyeIcon = passwordToggle.querySelector('.eye-icon');
-    if (type === 'text') {
-        eyeIcon.style.opacity = '0.7';
-    } else {
-        eyeIcon.style.opacity = '1';
+    if (!eyeIcon) return;
+    
+    // Eye open SVG (when password is visible - show open eye)
+    const eyeOpenSVG = `<path d="M10 4C6 4 2.73 6.61 1 10.5C2.73 14.39 6 17 10 17C14 17 17.27 14.39 19 10.5C17.27 6.61 14 4 10 4ZM10 15C7.24 15 5 12.76 5 10C5 7.24 7.24 5 10 5C12.76 5 15 7.24 15 10C15 12.76 12.76 15 10 15ZM10 7C8.34 7 7 8.34 7 10C7 11.66 8.34 13 10 13C11.66 13 13 11.66 13 10C13 8.34 11.66 7 10 7Z" fill="currentColor"/>`;
+    
+    // Eye closed/slashed SVG (when password is hidden - show closed eye with slash)
+    const eyeClosedSVG = `<path d="M2.5 2.5L17.5 17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 4C6 4 2.73 6.61 1 10.5C2.73 14.39 6 17 10 17C11.5 17 12.8 16.5 13.9 15.7M16.2 13.2C17.1 12.1 17.7 10.8 18 10.5C17.27 6.61 14 4 10 4C9.1 4 8.2 4.2 7.4 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/><path d="M10 7C8.34 7 7 8.34 7 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>`;
+    
+    function togglePassword() {
+        const currentType = passwordInput.getAttribute('type');
+        const newType = currentType === 'password' ? 'text' : 'password';
+        
+        passwordInput.setAttribute('type', newType);
+        
+        // Update icon based on visibility state
+        // When password is visible (text), show closed/slashed eye (click to hide)
+        // When password is hidden (password), show open eye (click to show)
+        if (newType === 'text') {
+            // Password is visible - show closed/slashed eye icon
+            eyeIcon.innerHTML = eyeClosedSVG;
+            passwordToggle.setAttribute('aria-label', 'Hide password');
+            passwordToggle.setAttribute('title', 'Hide password');
+            // Add class to apply school theme color
+            passwordToggle.classList.add('password-visible');
+        } else {
+            // Password is hidden - show open eye icon
+            eyeIcon.innerHTML = eyeOpenSVG;
+            passwordToggle.setAttribute('aria-label', 'Show password');
+            passwordToggle.setAttribute('title', 'Show password');
+            // Remove class to revert to default muted color
+            passwordToggle.classList.remove('password-visible');
+        }
+        
+        // Focus back on input for better UX
+        passwordInput.focus();
     }
-});
+    
+    // Add click event listener - primary handler
+    function handleToggle(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        togglePassword();
+    }
+    
+    passwordToggle.addEventListener('click', handleToggle);
+    passwordToggle.addEventListener('mouseup', handleToggle);
+    
+    // Add touch event for better mobile support
+    passwordToggle.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        togglePassword();
+    });
+    
+    // Also set onclick directly as fallback
+    passwordToggle.onclick = handleToggle;
+    
+    // Debug: Log to console to verify button is found
+    console.log('Password toggle initialized:', passwordToggle);
+}
+
+// Initialize password toggle when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPasswordToggle);
+} else {
+    initPasswordToggle();
+}
 
 // Form submission
 const loginForm = document.getElementById('loginForm');
@@ -217,7 +278,7 @@ function initLogoRotation() {
     
     const logos = [
         { image: '/Myskool.png', text: 'mySkool', theme: 'myskool', welcome: 'Welcome to mySkool!' },
-        { image: '/HPGS.png', text: 'HPGS', theme: 'hpgs', welcome: 'Welcome to HPGS!' },
+        { image: '/HPGS.png', text: 'HPGS CONNECT', theme: 'hpgs', welcome: 'Welcome to HPGS CONNECT!' },
         { image: '/elixir.png', text: 'Elixir', theme: 'elixir', welcome: 'Welcome to Elixir!' },
         { image: '/iuss.png', text: 'IUSS', theme: 'iuss', welcome: 'Welcome to IUSS!' }
     ];

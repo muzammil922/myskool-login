@@ -16,9 +16,9 @@
     --text-tertiary: #374151;
     --text-muted: rgba(17, 24, 39, 0.65);
     --text-light: rgba(17, 24, 39, 0.85);
-    --border-color: rgba(144, 124, 243, 0.18);
+    --border-color: rgba(0, 0, 0, 0.08);
     --input-bg: #ffffff;
-    --input-border: rgba(144, 124, 243, 0.2);
+    --input-border: rgba(0, 0, 0, 0.1);
     --form-bg: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.08);
     --shadow-color-hover: rgba(0, 0, 0, 0.12);
@@ -82,9 +82,9 @@
     --text-tertiary: #e5e5e5;
     --text-muted: rgba(255, 255, 255, 0.5);
     --text-light: rgba(255, 255, 255, 0.7);
-    --border-color: rgba(144, 124, 243, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
     --input-bg: rgba(26, 26, 26, 0.8);
-    --input-border: rgba(144, 124, 243, 0.2);
+    --input-border: rgba(255, 255, 255, 0.12);
     --form-bg: rgba(0, 0, 0, 0.2);
     --shadow-color: rgba(0, 0, 0, 0.3);
     --line-color: rgba(255, 255, 255, 0.3);
@@ -102,19 +102,19 @@
     --gradient-primary: var(--hpgs-gradient-primary);
     --gradient-secondary: var(--hpgs-gradient-secondary);
     --gradient-energy: var(--hpgs-gradient-energy);
-    --border-color: rgba(204, 52, 51, 0.1);
-    --input-border: rgba(204, 52, 51, 0.12);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 /* HPGS Light Theme - Lighter Borders */
 [data-logo="hpgs"][data-theme="light"] {
-    --border-color: rgba(204, 52, 51, 0.1);
-    --input-border: rgba(204, 52, 51, 0.12);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 [data-logo="hpgs"][data-theme="dark"] {
-    --border-color: rgba(204, 52, 51, 0.2);
-    --input-border: rgba(204, 52, 51, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.12);
     --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #2e0a0a 70%, #4e1b1b 100%);
 }
 
@@ -181,19 +181,31 @@
 }
 
 [data-logo="hpgs"] .glass-input:focus {
-    border-color: var(--hpgs-red) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
     box-shadow: 
-        0 0 0 3px rgba(204, 52, 51, 0.12),
+        0 0 0 3px rgba(0, 0, 0, 0.05),
         0 2px 4px rgba(0, 0, 0, 0.05),
         0 4px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 [data-logo="hpgs"] .glass-input:focus:not(:hover) {
-    border-color: var(--hpgs-red) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
 }
 
 [data-logo="hpgs"] .glass-input:hover {
-    border-color: rgba(204, 52, 51, 0.35) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .glass-input:focus {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 0 0 3px rgba(255, 255, 255, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .glass-input:hover {
+    border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 [data-logo="hpgs"] .checkbox-custom {
@@ -219,6 +231,14 @@ body:not([data-logo])[data-theme="dark"] #logoText {
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: #907cf3 !important;
     background-clip: unset !important;
+    display: none !important;
+}
+
+/* Hide logo text for mySkool theme */
+body:not([data-logo]) .logo-text,
+body:not([data-logo])[data-theme="light"] .logo-text,
+body:not([data-logo])[data-theme="dark"] .logo-text {
+    display: none !important;
 }
 
 /* HPGS Text Color - Solid Red */
@@ -249,164 +269,174 @@ body:not([data-logo])[data-theme="dark"] #logoText {
     background-clip: unset !important;
 }
 
-/* HPGS Blink Lines - Red */
+/* HPGS Blink Lines - Light Gray */
 [data-logo="hpgs"] .right-panel::after {
     animation: borderGlowRed 3s ease-in-out infinite, lineBlinkRed 2.5s infinite ease-in-out !important;
     background: linear-gradient(180deg, 
         transparent 0%,
-        rgba(204, 52, 51, 0.15) 20%,
-        rgba(204, 52, 51, 0.3) 50%,
-        rgba(204, 52, 51, 0.15) 80%,
+        rgba(0, 0, 0, 0.08) 20%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.08) 80%,
         transparent 100%) !important;
-    box-shadow: 0 0 15px rgba(204, 52, 51, 0.08) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-logo="hpgs"][data-theme="dark"] .right-panel::after {
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.08) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05) !important;
 }
 
 @keyframes borderGlowRed {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     50% {
         opacity: 0.5;
-        box-shadow: 0 0 25px rgba(204, 52, 51, 0.15);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
     }
 }
 
 @keyframes lineBlinkRed {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     18% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     19% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     19.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     20% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(204, 52, 51, 0.5), 0 0 50px rgba(204, 52, 51, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     20.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     21% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     22% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     38% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     39% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     39.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     40% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(204, 52, 51, 0.5), 0 0 50px rgba(204, 52, 51, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     40.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     41% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     42% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     58% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     59% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     59.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     60% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(204, 52, 51, 0.5), 0 0 50px rgba(204, 52, 51, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     60.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     61% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     62% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     78% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     79% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     79.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     80% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(204, 52, 51, 0.5), 0 0 50px rgba(204, 52, 51, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     80.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     81% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     82% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     98% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(204, 52, 51, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     99% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(204, 52, 51, 0.2), 0 0 30px rgba(204, 52, 51, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     99.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(204, 52, 51, 0.35), 0 0 40px rgba(204, 52, 51, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
 }
 
 
 [data-logo="hpgs"][data-theme="dark"] {
-    --border-color: rgba(204, 52, 51, 0.2);
-    --input-border: rgba(204, 52, 51, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.12);
 }
 
 /* Line gradient colors for themes */
@@ -1104,13 +1134,13 @@ body {
     --gradient-primary: var(--elixir-gradient-primary);
     --gradient-secondary: var(--elixir-gradient-secondary);
     --gradient-energy: var(--elixir-gradient-energy);
-    --border-color: rgba(183, 210, 67, 0.18);
-    --input-border: rgba(183, 210, 67, 0.2);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 [data-logo="elixir"][data-theme="dark"] {
-    --border-color: rgba(183, 210, 67, 0.2);
-    --input-border: rgba(183, 210, 67, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.12);
     --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #0a2e0a 70%, #1b4e1b 100%);
 }
 
@@ -1169,15 +1199,27 @@ body {
 }
 
 [data-logo="elixir"] .glass-input:focus {
-    border-color: var(--elixir-green) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
     box-shadow: 
-        0 0 0 3px rgba(183, 210, 67, 0.12),
+        0 0 0 3px rgba(0, 0, 0, 0.05),
         0 2px 4px rgba(0, 0, 0, 0.05),
         0 4px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 [data-logo="elixir"] .glass-input:hover {
-    border-color: rgba(183, 210, 67, 0.35) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .glass-input:focus {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 0 0 3px rgba(255, 255, 255, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .glass-input:hover {
+    border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 [data-logo="elixir"] .checkbox-custom {
@@ -1263,84 +1305,94 @@ body {
     animation: borderGlowElixir 3s ease-in-out infinite, lineBlinkElixir 2.5s infinite ease-in-out !important;
     background: linear-gradient(180deg, 
         transparent 0%,
-        rgba(183, 210, 67, 0.15) 20%,
-        rgba(183, 210, 67, 0.3) 50%,
-        rgba(183, 210, 67, 0.15) 80%,
+        rgba(0, 0, 0, 0.08) 20%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.08) 80%,
         transparent 100%) !important;
-    box-shadow: 0 0 15px rgba(183, 210, 67, 0.08) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-logo="elixir"][data-theme="dark"] .right-panel::after {
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.08) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05) !important;
 }
 
 @keyframes borderGlowElixir {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     50% {
         opacity: 0.5;
-        box-shadow: 0 0 25px rgba(183, 210, 67, 0.15);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
     }
 }
 
 @keyframes lineBlinkElixir {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     18% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     19% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(183, 210, 67, 0.2), 0 0 30px rgba(183, 210, 67, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     19.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(183, 210, 67, 0.35), 0 0 40px rgba(183, 210, 67, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     20% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(183, 210, 67, 0.5), 0 0 50px rgba(183, 210, 67, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     20.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(183, 210, 67, 0.35), 0 0 40px rgba(183, 210, 67, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     21% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(183, 210, 67, 0.2), 0 0 30px rgba(183, 210, 67, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     22% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     38%, 58%, 78%, 98% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     39%, 59%, 79%, 99% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(183, 210, 67, 0.2), 0 0 30px rgba(183, 210, 67, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     39.5%, 59.5%, 79.5%, 99.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(183, 210, 67, 0.35), 0 0 40px rgba(183, 210, 67, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     40%, 60%, 80%, 100% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(183, 210, 67, 0.5), 0 0 50px rgba(183, 210, 67, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     40.5%, 60.5%, 80.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(183, 210, 67, 0.35), 0 0 40px rgba(183, 210, 67, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     41%, 61%, 81% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(183, 210, 67, 0.2), 0 0 30px rgba(183, 210, 67, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     42%, 62%, 82% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(183, 210, 67, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
 }
 
@@ -1355,13 +1407,13 @@ body {
     --gradient-primary: var(--iuss-gradient-primary);
     --gradient-secondary: var(--iuss-gradient-secondary);
     --gradient-energy: var(--iuss-gradient-energy);
-    --border-color: rgba(29, 72, 135, 0.18);
-    --input-border: rgba(29, 72, 135, 0.2);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --input-border: rgba(0, 0, 0, 0.1);
 }
 
 [data-logo="iuss"][data-theme="dark"] {
-    --border-color: rgba(29, 72, 135, 0.2);
-    --input-border: rgba(29, 72, 135, 0.2);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --input-border: rgba(255, 255, 255, 0.12);
     --bg-panel-left: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #0a0a2e 70%, #1b1b4e 100%);
 }
 
@@ -1389,6 +1441,7 @@ body {
 
 [data-logo="iuss"] .tagline {
     text-shadow: none !important;
+    margin-top: 10px !important;
 }
 
 [data-logo="iuss"][data-theme="light"] .logo-text {
@@ -1399,6 +1452,7 @@ body {
     -webkit-text-fill-color: #1d4887 !important;
     background-clip: unset !important;
     text-shadow: none !important;
+    margin-bottom: 10px !important;
 }
 
 [data-logo="iuss"][data-theme="dark"] .logo-text {
@@ -1409,26 +1463,48 @@ body {
     -webkit-text-fill-color: #1d4887 !important;
     background-clip: unset !important;
     text-shadow: none !important;
+    margin-bottom: 10px !important;
 }
 
 [data-logo="iuss"][data-theme="light"] .tagline {
     text-shadow: none !important;
+    margin-top: 10px !important;
 }
 
 [data-logo="iuss"][data-theme="dark"] .tagline {
     text-shadow: none !important;
+    margin-top: 10px !important;
+}
+
+/* IUSS Logo - Same size as HPGS */
+[data-logo="iuss"] .logo-image {
+    height: 200px !important;
+    max-width: 400px !important;
+    width: auto !important;
 }
 
 [data-logo="iuss"] .glass-input:focus {
-    border-color: var(--iuss-blue) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
     box-shadow: 
-        0 0 0 3px rgba(29, 72, 135, 0.12),
+        0 0 0 3px rgba(0, 0, 0, 0.05),
         0 2px 4px rgba(0, 0, 0, 0.05),
         0 4px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 [data-logo="iuss"] .glass-input:hover {
-    border-color: rgba(29, 72, 135, 0.35) !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .glass-input:focus {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 0 0 3px rgba(255, 255, 255, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .glass-input:hover {
+    border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
 [data-logo="iuss"] .checkbox-custom {
@@ -1514,84 +1590,94 @@ body {
     animation: borderGlowIuss 3s ease-in-out infinite, lineBlinkIuss 2.5s infinite ease-in-out !important;
     background: linear-gradient(180deg, 
         transparent 0%,
-        rgba(29, 72, 135, 0.15) 20%,
-        rgba(29, 72, 135, 0.3) 50%,
-        rgba(29, 72, 135, 0.15) 80%,
+        rgba(0, 0, 0, 0.08) 20%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.08) 80%,
         transparent 100%) !important;
-    box-shadow: 0 0 15px rgba(29, 72, 135, 0.08) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-logo="iuss"][data-theme="dark"] .right-panel::after {
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.08) 80%,
+        transparent 100%) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05) !important;
 }
 
 @keyframes borderGlowIuss {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     50% {
         opacity: 0.5;
-        box-shadow: 0 0 25px rgba(29, 72, 135, 0.15);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
     }
 }
 
 @keyframes lineBlinkIuss {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     18% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     19% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(29, 72, 135, 0.2), 0 0 30px rgba(29, 72, 135, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     19.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(29, 72, 135, 0.35), 0 0 40px rgba(29, 72, 135, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     20% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(29, 72, 135, 0.5), 0 0 50px rgba(29, 72, 135, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     20.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(29, 72, 135, 0.35), 0 0 40px rgba(29, 72, 135, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     21% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(29, 72, 135, 0.2), 0 0 30px rgba(29, 72, 135, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     22% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     38%, 58%, 78%, 98% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     39%, 59%, 79%, 99% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(29, 72, 135, 0.2), 0 0 30px rgba(29, 72, 135, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     39.5%, 59.5%, 79.5%, 99.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(29, 72, 135, 0.35), 0 0 40px rgba(29, 72, 135, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     40%, 60%, 80%, 100% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(29, 72, 135, 0.5), 0 0 50px rgba(29, 72, 135, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     40.5%, 60.5%, 80.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(29, 72, 135, 0.35), 0 0 40px rgba(29, 72, 135, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     41%, 61%, 81% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(29, 72, 135, 0.2), 0 0 30px rgba(29, 72, 135, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     42%, 62%, 82% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(29, 72, 135, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
 }
 
@@ -1676,24 +1762,34 @@ body {
     height: 100%;
     background: linear-gradient(180deg, 
         transparent 0%,
-        rgba(144, 124, 243, 0.15) 20%,
-        rgba(144, 124, 243, 0.3) 50%,
-        rgba(144, 124, 243, 0.15) 80%,
+        rgba(0, 0, 0, 0.08) 20%,
+        rgba(0, 0, 0, 0.12) 50%,
+        rgba(0, 0, 0, 0.08) 80%,
         transparent 100%);
     z-index: 2;
     animation: borderGlow 3s ease-in-out infinite, lineBlink 2.5s infinite ease-in-out;
-    box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     transition: opacity 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+[data-theme="dark"] .right-panel::after {
+    background: linear-gradient(180deg, 
+        transparent 0%,
+        rgba(255, 255, 255, 0.08) 20%,
+        rgba(255, 255, 255, 0.12) 50%,
+        rgba(255, 255, 255, 0.08) 80%,
+        transparent 100%);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 @keyframes borderGlow {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     50% {
         opacity: 0.5;
-        box-shadow: 0 0 25px rgba(144, 124, 243, 0.15);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
     }
 }
 
@@ -1701,138 +1797,138 @@ body {
 @keyframes lineBlink {
     0%, 100% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     /* Smooth fade in */
     18% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     19% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     19.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     /* Peak brightness */
     20% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(144, 124, 243, 0.5), 0 0 50px rgba(144, 124, 243, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     20.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     /* Smooth fade out */
     21% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     22% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     /* Second blink */
     38% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     39% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     39.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     40% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(144, 124, 243, 0.5), 0 0 50px rgba(144, 124, 243, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     40.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     41% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     42% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     /* Third blink */
     58% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     59% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     59.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     60% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(144, 124, 243, 0.5), 0 0 50px rgba(144, 124, 243, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     60.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     61% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     62% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     /* Fourth blink */
     78% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     79% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     79.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     80% {
         opacity: 0.95;
-        box-shadow: 0 0 35px rgba(144, 124, 243, 0.5), 0 0 50px rgba(144, 124, 243, 0.3);
+        box-shadow: 0 0 35px rgba(0, 0, 0, 0.12), 0 0 50px rgba(0, 0, 0, 0.08);
     }
     80.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
     81% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     82% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     /* Fifth blink */
     98% {
         opacity: 0.3;
-        box-shadow: 0 0 15px rgba(144, 124, 243, 0.08);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     }
     99% {
         opacity: 0.5;
-        box-shadow: 0 0 20px rgba(144, 124, 243, 0.2), 0 0 30px rgba(144, 124, 243, 0.1);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08), 0 0 30px rgba(0, 0, 0, 0.05);
     }
     99.5% {
         opacity: 0.7;
-        box-shadow: 0 0 28px rgba(144, 124, 243, 0.35), 0 0 40px rgba(144, 124, 243, 0.2);
+        box-shadow: 0 0 28px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.08);
     }
 }
 
@@ -2023,17 +2119,32 @@ body {
 
 .glass-input:focus {
     outline: none;
-    border-color: #907cf3;
+    border-color: rgba(0, 0, 0, 0.15);
     background: var(--input-bg);
     box-shadow: 
-        0 0 0 3px rgba(144, 124, 243, 0.12),
+        0 0 0 3px rgba(0, 0, 0, 0.05),
         0 2px 4px rgba(0, 0, 0, 0.05),
         0 4px 8px rgba(0, 0, 0, 0.04);
     transform: translateY(-1px);
 }
 
 .glass-input:hover {
-    border-color: rgba(144, 124, 243, 0.35);
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .glass-input:focus {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 
+        0 0 0 3px rgba(255, 255, 255, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .glass-input:hover {
+    border-color: rgba(255, 255, 255, 0.15) !important;
     box-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.05),
         0 4px 8px rgba(0, 0, 0, 0.04);
@@ -2801,6 +2912,13 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         width: auto;
     }
     
+    /* IUSS Tablet Logo - Same size as HPGS */
+    [data-logo="iuss"] .logo-image {
+        height: 140px !important;
+        max-width: 280px !important;
+        width: auto !important;
+    }
+    
     .logo-text {
         font-size: 2rem;
     }
@@ -2913,6 +3031,13 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         width: auto;
     }
     
+    /* IUSS Mobile Logo - Same size as HPGS */
+    [data-logo="iuss"] .logo-image {
+        height: 140px !important;
+        max-width: 280px !important;
+        width: auto !important;
+    }
+    
     .logo-text {
         font-size: 1.875rem;
         margin-bottom: 8px;
@@ -2962,6 +3087,7 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         -webkit-background-clip: unset !important;
         -webkit-text-fill-color: #907cf3 !important;
         background-clip: unset !important;
+        display: none !important;
     }
     
     /* Mobile Logo Text Colors - HPGS Solid Red */
@@ -3163,6 +3289,13 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         width: auto;
     }
     
+    /* IUSS Mobile Small Logo - Same size as HPGS */
+    [data-logo="iuss"] .logo-image {
+        height: 110px !important;
+        max-width: 220px !important;
+        width: auto !important;
+    }
+    
     .logo-text {
         font-size: 1.625rem;
         margin-bottom: 6px;
@@ -3185,7 +3318,7 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         background-clip: unset !important;
     }
     
-    /* Mobile Small Logo Text Colors - Default mySkool Solid Purple */
+    /* Mobile Small Logo Text Colors - Default mySkool Solid Purple - Hidden */
     body:not([data-logo]) .mobile-logo .logo-text,
     body:not([data-logo]) .mobile-logo #logoTextMobile,
     body:not([data-logo])[data-theme="light"] .mobile-logo .logo-text,
@@ -3197,6 +3330,7 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
         -webkit-background-clip: unset !important;
         -webkit-text-fill-color: #907cf3 !important;
         background-clip: unset !important;
+        display: none !important;
     }
     
     /* Mobile Small Logo Text Colors - Elixir Green */
@@ -3407,6 +3541,13 @@ body:not([data-logo])[data-theme="dark"] .signin-button:active {
     .logo-image {
         height: 80px;
         max-width: 160px;
+    }
+    
+    /* IUSS Landscape Mobile Logo - Same size as HPGS */
+    [data-logo="iuss"] .logo-image {
+        height: 80px !important;
+        max-width: 160px !important;
+        width: auto !important;
     }
     
     .logo-text {
